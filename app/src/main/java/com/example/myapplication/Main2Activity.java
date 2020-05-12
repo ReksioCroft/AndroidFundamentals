@@ -7,6 +7,7 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Lifecycle;
@@ -15,6 +16,8 @@ import android.util.Log;
 import android.view.View;
 
 public class Main2Activity extends AppCompatActivity {
+    public static String MESSAGE = "message";
+    public static String COUNT = "count";
     private static String TAG = "LifecycleTestActivity";
 
     @Override
@@ -62,6 +65,9 @@ public class Main2Activity extends AppCompatActivity {
 
     public void openSecondActivityOnClick(View view) {
         Intent intent = new Intent(Main2Activity.this, SecondActivity.class);
+        intent.putExtra(MESSAGE, "hello second activity");
+        ///trimit mesaj de la main2activity la secondactivity
+        intent.putExtra(COUNT, 13);
         startActivity(intent);
     }
 
@@ -84,4 +90,7 @@ public class Main2Activity extends AppCompatActivity {
         openUrlImplicitIntent.setData(Uri.parse("https://developer.android.com/"));
         startActivity(openUrlImplicitIntent);
     }
+
+
 }
+
